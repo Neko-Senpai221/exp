@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+        // this one here is for paragraph hide with button
+          $(document).ready(function(){
+  $("#a").click(function(){
+    $("p").hide();
+    alert("paragraph is hidden");
+  });
+  $("#b").click(function(){
+    $("p").show("slow", function(){
+      alert("ur hidden paragraph is now shown");
+    });
+  });
+  $("#c").click(function(){
+    $("p").toggle();
+  });
+});
+// this is for input or form i guess
+   $(document).ready(function() {
+    $("input").focus(function() {
+        $(this).css("background-color", "cyan");
+    });
+    $("input").blur(function() {
+        $(this).css("background-color", "lightblue");
+    });
+    });             
+      //  this one here is for fade  
+      $(document).ready(function() {
+        // fade in part
+        $("#btn1").click(function() {
+          $("#box1").fadeIn();
+          $("#box2").fadeIn(1500);
+          $("#box3").fadeIn(3000);
+        });
+        // fadeout part
+        $("#btn2").click(function() {
+          $("#box1").fadeOut();
+          $("#box2").fadeOut(1500);
+          $("#box3").fadeOut(3000);
+        });
+        // fadetoggle part
+        $("#btn3").click(function() {
+          $("#box1").fadeToggle();
+          $("#box2").fadeToggle(1500);
+          $("#box3").fadeToggle(3000);
+        });
+        // this is fadeto part
+        $("#btn4").click(function() {
+          $("#box1").fadeTo(500, 0.25);
+          $("#box2").fadeTo(1000, 0.5);
+          $("#box3").fadeTo(1500, 0.75);
+        });
+      });   
+        // this one here is for slide
+        $(document).ready(function() {
+        $("#slide1").click(function(){
+          $("#slide2").slideToggle(3000);
+        });
+        $("#sbtn").click(function(){
+          $("#slide2").stop();
+        });
+        });
+        // this one here is for animation
+        $(document).ready(function(){
+          $("#abtn").click(function(){
+            var ani=$("#animate");
+            ani.animate({height:'300px', opacity:'0.4'},"slow");
+            ani.animate({width:'300px', opacity:'0.4'},"slow");
+            ani.animate({height:'100px', opacity:'0.4'},"slow");
+            ani.animate({width:'100px', opacity:'0.4'},"slow");
+          });
+        });
+        // channing i guess
+        $(document).ready(function(){
+          $("#chbtn").click(function(){
+            $("#ch").css("color", "blue").slideUp(2000).slideDown(2000);
+          });
+        });
+        // this is for get
+        $(document).ready(function() {
+          $("#gbtn1").click(function(){
+            alert("TEXT: "+ $("#get") .text());
+          });
+          $("#gbtn2").click(function(){
+            alert("HTML: "+$("#get").html());
+          });
+        });
+        // this one here is for set
+        $(document).ready(function(){
+          $("#setbtn1").click(function(){
+            $("#set1").text("it changed");
+          });
+          $("#setbtn2").click(function(){
+            $("#set2").html("<b>it changed</b>");
+          });
+          $("#setbtn3").click(function(){
+            $("#set3").val("Senpai");
+          });
+        });
+      // add part
+      function afterText() {
+  var txt1 = "<b>I </b>";           // Create element with HTML
+  var txt2 = $("<i></i>").text("love ");  // Create with jQuery
+  var txt3 = document.createElement("b");   // Create with DOM
+  txt3.innerHTML = "jQuery!";
+  $("img").after(txt1, txt2, txt3);    // Insert new elements after img
+}
+// this part is for remove
+$(document).ready(function(){
+  $("#remove").click(function(){
+    $("#remove1").remove();
+  });
+});
+// this one is for add class
+$(document).ready(function(){
+  $("#class").click(function(){
+    $("#h1").addClass("see green");
+  })
+})
+      // this one here is for css  
+      $(document).ready(function(){
+        $("#css1").click(function(){
+          $("#css").css({"color": "blue", "font-size": "20px"});
+        });
+      });
+      // alright, this is for dimension
+      $(document).ready(function(){
+        $("#dim1").click(function(){
+          var txt="";
+          txt += "Width of div: " + $("#dim").width() + "<br/>";
+          txt += "Height of div: " + $("#dim").height();
+          $("#dim").html(txt);
+        });
+        $("#dim2").click(function(){
+          $("#dim").width(100).height(100);
+        });
+      });
+
+        </script>
+   <style>
+    .see{
+      color:blue;
+      font-size:20px;
+    }
+    .green{
+      color:blue;
+    }
+   </style>
+
+    </head>
+<body>
+    <!-- this one here is for selector -->
+    <h1>hide, show or toggle</h1>
+   <p>hide me or reveal me after hidding me</p>
+   <button id="a">hide paragraph</button>
+   <button id="b">show ur hidden paragraph</button>
+   <button id="c">toggle (hide and show)</button>
+   <br>
+   <br>
+<!-- this one here is for event, just one example -->
+<h1>event example</h1>
+   name: <input type="text" name="your full name here">
+   <br>
+   <br>
+   email:<input type="text" name="your email here">
+   <br>
+   <br>
+<!-- this is for fade -->
+<h1>fade thing</h1>
+<button id="btn1">fadeIn</button>
+<button id="btn2">fadeOut</button>
+<button id="btn3">fadeToggle</button>
+<button id="btn4">fadeTo</button>
+<br><br>
+<div id="box1" style="height:100px; width:100px; display:none; background-color:red;"></div>
+<div id="box2" style="height:100px; width:100px; display:none; background-color:yellow;"></div>
+<div id="box3" style="height:100px; width:100px; display:none; background-color:green;"></div>
+<br><br>
+<!-- this one here is for slide thingy. only did toggle because it covers both the thing -->
+<h1>slide with stop thing</h1>
+<center><button id="sbtn">stop slide</button></center>
+<br>
+<div id="slide1" style="background-color:cyan; width:100%; height:30px; text-align:center; padding-top:13px;">click here to slide up or down</div>
+<div id="slide2" style="background-color:lightblue; width:100%; height:150px; text-align:center; padding-top:70px;">this will slide up and down</div>
+<br><br>
+<!-- this one here is for animation -->
+<h1>animation</h1>
+<button id="abtn">click to animate</button>
+<div id="animate" style="background-color:blue;width:100px;height:100px;position:relative;"></div>
+<!-- chaning it is -->
+<br><br>
+<h1>chaning</h1>
+<p id="ch">look at the text</p>
+<button id="chbtn">button-chan</button>
+<!-- this is for get -->
+<h1>jQuery get</h1>
+<p id="get">ohhh! my <b>lord</b>!</p>
+<button id="gbtn1">show text</button>
+<button id="gbtn2">show html</button><br><br>
+<!-- this one here is for set -->
+<h1>set</h1>
+<p id="set1">paragraph 1</p>
+<p id="set2">paragraph 2</p>
+<p>Input field <input type="text" id="set3" value="neko"></p>
+<button id="setbtn1">set text</button>
+<button id="setbtn2">set html</button>
+<button id="setbtn3">set value</button>
+<!-- add part -->
+<h1>add</h1>
+<img src="https://www.w3schools.com/images/w3jquery.gif" alt="jQuery" width="100" height="140">
+
+<p>Click the button to insert text after the image.</p>
+
+<button onclick="afterText()">Insert after</button><br> <br>
+<!-- this is for remove -->
+<h1>remove</h1>
+<p id="remove1">click on the button to remove this paragraph</p>
+<button id="remove">remove</button>
+<!-- this one here is for add class -->
+<h1>add class</h1>
+<h1 id="h1">look at this text..</h1>
+<button id="class">look</button>
+<!-- this one here is for css -->
+<h1>change css</h1>
+<p id="css">look at this paragraph</p>
+<button id="css1">change css</button><br>
+<!-- dimension -->
+<h1>this is for dimension</h1>
+
+<div id="dim" style="background-color:cyan; width:300px; height:300px;"></div>
+<button id="dim1">check dimension</button>
+<button id="dim2">set dimension</button>
+<p>width() - returns the width of the element.</p>
+<p>height() - returns the height of an element'</p>
+</body>
+</html>
